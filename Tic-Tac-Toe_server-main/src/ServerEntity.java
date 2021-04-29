@@ -58,11 +58,11 @@ public class ServerEntity {
                 connectionList.get(i).out.writeUTF(message);
                 connectionList.get(i).out.flush();
 
-                System.out.println(ConsoleColors.YELLOW
+                System.out.println(ConsoleColors.BLUE
                         + "Сообщение: "
                         + ConsoleColors.RESET
                         + message
-                        + ConsoleColors.YELLOW
+                        + ConsoleColors.BLUE
                         + " отправлено серверу "
                         + connectionList.get(i).socket.getPort() + ";"
                         + ConsoleColors.RESET);
@@ -118,7 +118,7 @@ public class ServerEntity {
                     String msg = null;
 
                     try {
-                        System.out.println(ConsoleColors.YELLOW_BOLD
+                        System.out.println(ConsoleColors.BLUE_BOLD
                                 + "Чтение данных с порта " +
                                 socket.socket.getPort() + ";"
                                 + ConsoleColors.RESET);
@@ -126,7 +126,7 @@ public class ServerEntity {
                         msg = socket.in.myReadUTF();
 
                         if (msg != null) {
-                            System.out.println(ConsoleColors.YELLOW_BOLD
+                            System.out.println(ConsoleColors.BLUE_BOLD
                                     + "Получено сообщение от другого сервера: " + msg + "."
                                     + ConsoleColors.RESET);
 
@@ -191,10 +191,10 @@ public class ServerEntity {
             serversSocket = new ServerSocket(port);
 
             System.out.println(ConsoleColors.GREEN_BOLD
-                    + "Создан сервер."
+                    + "Сервер успешно создан."
                     + ConsoleColors.GREEN
-                    + "\n\tПорт для серверов: "
-                    + port + ".\n\tПорт для клиентов: " + (port - 100)
+                    + "\n\tПорт серверов: "
+                    + port + ".\n\tПорт клиентов: " + (port - 100)
                     + ConsoleColors.RESET);
 
             return 0;
@@ -230,7 +230,7 @@ public class ServerEntity {
                         strSocket.out = new DataOutputStream(tempSocket.getOutputStream());
                         strSocket.in = new MyDataInputStream(tempSocket.getInputStream());
 
-                        System.out.println(ConsoleColors.YELLOW_BOLD
+                        System.out.println(ConsoleColors.BLUE_BOLD
                                 +"Сервер подключился к серверу: "
                                 + strSocket.socket.getPort() + "."
                                 + ConsoleColors.RESET);
@@ -274,7 +274,7 @@ public class ServerEntity {
 
                                 socketsCList[i].online = true;
 
-                                System.out.println(ConsoleColors.YELLOW_BOLD
+                                System.out.println(ConsoleColors.BLUE_BOLD
                                         + "Каналы ввода и вывода инициализированны."
                                         + ConsoleColors.RESET);
 
@@ -376,7 +376,7 @@ public class ServerEntity {
             try {
                 serversSocket.close();
 
-                System.out.println(ConsoleColors.YELLOW_BOLD
+                System.out.println(ConsoleColors.BLUE_BOLD
                         + "Закрыт серверный сокет для серверов."
                         + ConsoleColors.RESET);
             } catch (IOException exception) {
@@ -390,7 +390,7 @@ public class ServerEntity {
             try {
                 clientsSocket.close();
 
-                System.out.println(ConsoleColors.YELLOW_BOLD
+                System.out.println(ConsoleColors.BLUE_BOLD
                         + "Закрыт серверный сокет для клиентов."
                         + ConsoleColors.RESET);
             } catch (IOException exception) {
