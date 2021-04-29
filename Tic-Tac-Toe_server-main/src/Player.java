@@ -24,8 +24,8 @@ public class Player {
     void waitConnection(ServerSocket serverSocket) {
 
         try {
-            System.out.println(ConsoleColors.YELLOW_BOLD
-                    + "\nОжидание подключения клиента..."
+            System.out.println(ConsoleColors.BLUE_BOLD
+                    + "\nОжидание соединения клиента."
                     + ConsoleColors.RESET);
 
             clientSocket = serverSocket.accept();
@@ -67,25 +67,18 @@ public class Player {
 /*
     void waitConnection(ServerSocket serverSocket) throws IOException {
         final ExecutorService clientProcessingPool = Executors.newFixedThreadPool(2);
-
-
         Runnable playerConnect = new Runnable() {
             @Override
             public void run() {
-
                 try {
                     clientSocket = serverSocket.accept();
-
                     System.out.print("\nConnection accepted.\n");
                     connection = true;
-
                     host = clientSocket.getInetAddress().getHostAddress();
                     port = clientSocket.getPort();
-
                     //Адрес подключенного клиента
                     System.out.println("Host: " + host);
                     System.out.println("Port: " + port);
-
                     in = new DataInputStream(clientSocket.getInputStream());
                     out = new DataOutputStream(clientSocket.getOutputStream());
                 } catch (IOException e) {
@@ -93,7 +86,6 @@ public class Player {
                 }
             }
         };
-
         Thread serverThread = new Thread(playerConnect);
         serverThread.start();
     }
@@ -108,7 +100,7 @@ public class Player {
             try {
                 result = in.myReadUTF();
 
-                System.out.println(ConsoleColors.YELLOW
+                System.out.println(ConsoleColors.BLUE
                         + "Получены данные от клиента: "
                         + ConsoleColors.RESET
                         + result);
@@ -152,12 +144,11 @@ public class Player {
                 out.writeUTF(message);
                 out.flush();
 
-                System.out.println(ConsoleColors.YELLOW
-                        + "Сообщение: "
+                System.out.println(ConsoleColors.BLUE
+                        + "Клиенту " + host + "-" + port + " отправлено "
+                        + "сообщение: "
                         + ConsoleColors.RESET
                         + message
-                        + ConsoleColors.YELLOW
-                        + " отправленно клиенту " + host + "-" + port + "."
                         + ConsoleColors.RESET);
             } catch (IOException e) {
                 System.out.println(ConsoleColors.RED_BOLD
