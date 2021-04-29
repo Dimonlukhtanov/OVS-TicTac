@@ -54,7 +54,9 @@ public class GameInterface extends JFrame {
                 buttons[i][j] = new GameButton(i, j);
                 buttons[i][j].setMargin(new Insets(0, 0, 0, 0));
                 buttons[i][j].setEnabled(false);
-
+                buttons[i][j].setBackground(Color.BLACK);
+                buttons[i][j].setForeground(Color.WHITE);
+                buttons[i][j].setFont(new Font("Arial", Font.PLAIN, 40));
                 gridPanel.add(buttons[i][j]);
             }
         }

@@ -5,6 +5,8 @@ import java.net.Socket;
 
 public class GameInput {
 
+    private final String long_t = "                                                " +
+            "                ";
     private final int SIZE = 3;
 
     public boolean connection = true;
@@ -58,9 +60,9 @@ public class GameInput {
             if (args.length == 4) {
                 if (args[2].equals("_")) {
                     if (args[0].equals(args[1])) {
-                        gameInterface.setStatusLabel("Ваш ход (" + args[1] + ")");
+                        gameInterface.setStatusLabel(long_t + "Ваш ход (" + args[1] + ")");
                     } else {
-                        gameInterface.setStatusLabel("Ход противника (" + args[1] + ")");
+                        gameInterface.setStatusLabel(long_t + "Ход противника (" + args[1] + ")");
                     }
 
                     setActiveBoard(args[0].equals(args[1]));
@@ -68,13 +70,13 @@ public class GameInput {
                     win = true;
 
                     if (args[2].equals(args[0])) {
-                        gameInterface.setStatusLabel("Вы победили!");
+                        gameInterface.setStatusLabel(long_t + "Вы победили!");
 
-                        System.out.println("Вы победили!");
+                        System.out.println(long_t + "Вы победили!");
                     } else {
-                        gameInterface.setStatusLabel("Вы проиграли!");
+                        gameInterface.setStatusLabel(long_t + "Вы проиграли!");
 
-                        System.out.println("Вы проиграли!");
+                        System.out.println(long_t + "Вы проиграли!");
                     }
 
                     setActiveBoard(false);
